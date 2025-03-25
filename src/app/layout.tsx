@@ -14,7 +14,7 @@ const inter = Inter({
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
     return (
-        <html lang="en">
+        <html lang="ru">
             <body className={`${inter.className} antialiased`}>
                 {children}
             </body>

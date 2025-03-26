@@ -71,7 +71,7 @@ export async function GET(req: NextRequest) {
         return NextResponse.json(weather, {status: 200, headers: {
                 "X-RateLimit-Limit": rl_limit,
                 "X-RateLimit-Remaining": rl_remaining,
-                "Cache-Control": `max-age=${60*20}`
+                "Cache-Control": `public, max-age=${60*20}`
             }});
     } catch (error) {
         return NextResponse.json({"error": error}, {status: 500})

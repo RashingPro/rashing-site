@@ -1,3 +1,5 @@
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+
 "use client"
 
 import {
@@ -14,7 +16,7 @@ import profile_icon from "@/../public/logo.png";
 import "./module.css"
 import {useEffect, useState} from "react";
 
-function ProfileTitle({weather, weatherIcon}: {weather: any, weatherIcon: any}) {
+function ProfileTitle({weather, weatherIcon}: {weather: string, weatherIcon: number}) {
     return <div className={"general-info__title"}>
         <div className={"general-info__title__icon-container"}>
             <Image className={"general-info__title__icon"} src={profile_icon} alt={"profile icon"} />
@@ -68,14 +70,14 @@ function getTime() {
         minute: 'numeric',
         second: 'numeric',
         hour12: false,
-        timeZone: "+03"
+        timeZone: "Europe/Moscow"
     });
 }
 
 interface ModuleProps {
     age: number,
     wakatime: number,
-    weather: { [key: string]: any }
+    weather: { [key: string]: string | any }
 }
 
 export default function Module({age, wakatime, weather}: ModuleProps) {

@@ -1,4 +1,4 @@
-"use server"
+// "use server"
 
 import GeneralInfo from "@/modules/GeneralInfo/module"
 import AppLayout from "@/modules/AppLayout/module"
@@ -10,7 +10,7 @@ async function GetWeather() {
             revalidate: 60*10
         }
     })
-    if (!res.ok) return undefined;
+    if (!res.ok) return {notFound: true};
     const weather = await res.json()
     return weather;
 }
@@ -30,3 +30,5 @@ export default async function Page() {
         <GeneralInfo age={age} wakatime={wakatime} weather={weather}/>
     </AppLayout>
 }
+
+export const dynamic = "force-dynamic";

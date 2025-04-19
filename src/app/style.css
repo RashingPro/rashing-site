@@ -1,3 +1,10 @@
 .main-info-container {
-    width: 50%;
+    width: 45rem;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10rem;
 }

@@ -2,9 +2,20 @@
 
 import ProfileCard from "@/modules/ProfileCard/module"
 import ProfileDescription from "@/modules/ProfileDescription/module"
+import GeneralInfo from "@/modules/GeneralInfo/module"
 import AppLayout from "@/modules/AppLayout/module"
 import "./style.css"
 
+async function GetWeather() {
+    const res = await fetch(`${process.env.MAIN_HOSTNAME}/api/weather?place=st.%20petersburg`, {
+        next: {
+            revalidate: 60*20
+        }
+    })
+    if (!res.ok) return undefined;
+    const weather = await res.json()
+    return weather;
+}
 
 export default async function Page() {
     const date = new Date();
@@ -12,17 +23,12 @@ export default async function Page() {
     const age = new Date(date.getTime() - dateBirth.getTime()).getFullYear() - 1970
 
     let wakatime;
-    const wakatimeRes = await fetch("https://api.wakatime.com/api/v1/users/b1c25f74-0bce-4dc9-bd10-50b9bb1f9d05/all_time_since_today")
-    console.log(wakatimeRes.status)
+    const wakatimeRes = await fetch("https://wakatime.com/share/@Rashing/2325798e-c1f6-46c6-8ad5-75178c1a3808.json")
     if (wakatimeRes.ok) {
-        wakatime = (await wakatimeRes.json())["total_seconds"]
+        wakatime = (await wakatimeRes.json())["data"]["grand_total"]["total_seconds"]
     }
-    console.log(wakatime)
+    const weather = await GetWeather()
     return <AppLayout>
-        <div className={"main-info-container"}>
-            <ProfileCard />
-            <ProfileDescription age={age} wakatime={wakatime}/>
-        </div>
-
+        <GeneralInfo age={age} wakatime={wakatime} weather={weather}/>
     </AppLayout>
 }

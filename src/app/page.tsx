@@ -1,16 +1,16 @@
 "use server"
 
+import ProfileCard from "@/modules/ProfileCard/module"
+import ProfileDescription from "@/modules/ProfileDescription/module"
+import AppLayout from "@/modules/AppLayout/module"
+
+
 export default async function Page() {
-    const res = await fetch(`${process.env.MAIN_HOSTNAME}/api/weather?place=st.%20petersburg`, {
-        next: {
-            revalidate: 60*20
-        }
-    })
-    const weather = await res.json()
-    if (!res.ok) {
-        console.error(weather["error"])
-        return <>Ошибка!</>
-    } else {
-        return <>Сейчас {weather["main"]["temp"]}</>
-    }
+    return <AppLayout>
+        <div className={"main-info-container"}>
+            <ProfileCard />
+            <ProfileDescription />
+        </div>
+
+    </AppLayout>
 }

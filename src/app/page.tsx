@@ -1,7 +1,5 @@
 "use server"
 
-import ProfileCard from "@/modules/ProfileCard/module"
-import ProfileDescription from "@/modules/ProfileDescription/module"
 import GeneralInfo from "@/modules/GeneralInfo/module"
 import AppLayout from "@/modules/AppLayout/module"
 import "./style.css"
@@ -9,7 +7,7 @@ import "./style.css"
 async function GetWeather() {
     const res = await fetch(`${process.env.MAIN_HOSTNAME}/api/weather?place=st.%20petersburg`, {
         next: {
-            revalidate: 60*20
+            revalidate: 60*10
         }
     })
     if (!res.ok) return undefined;

@@ -1,0 +1,30 @@
+.profile-card-container {
+    width: auto;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    padding: 2rem;
+    align-items: center;
+}
+
+.profile-card-container__icon-container {
+    height: 100%;
+    width: fit-content;
+    padding: 2rem;
+}
+
+.profile-card-container__icon {
+    width: 15rem;
+    height: auto;
+    border-radius: 100%;
+}
+
+.profile-card-container__info-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-card-container__info-title {
+}

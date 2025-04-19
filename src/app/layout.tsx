@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import {ReactNode} from "react";
 
 export const metadata: Metadata = {
-  title: "Rashing",
-  description: "Rashing | Next.js | Python | Java",
+    title: "Rashing",
+    description: "Rashing | Next.js | Python | Java",
 };
 
-const inter = Inter({
-    subsets: ["latin", "cyrillic"]
+const font = Roboto_Mono({
+    subsets: ["latin", "cyrillic"],
+    weight: ["300", "400", "500", "600"]
 })
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
     return (
         <html lang="ru">
-            <body className={`${inter.className} antialiased`}>
+            <body className={`${font.className} antialiased`}>
                 {children}
             </body>
         </html>

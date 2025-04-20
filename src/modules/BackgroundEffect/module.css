@@ -1,0 +1,8 @@
+@keyframes floating {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(200vw, 200vh);
+    }
+}

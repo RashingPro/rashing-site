@@ -2,6 +2,7 @@
 
 import GeneralInfo from "@/modules/GeneralInfo/module"
 import AppLayout from "@/modules/AppLayout/module"
+import BackgroundEffect from "@/modules/BackgroundEffect/module"
 import "./style.css"
 
 async function GetWeather() {
@@ -27,6 +28,7 @@ export default async function Page() {
     }
     const weather = await GetWeather()
     return <AppLayout>
+        <BackgroundEffect blur={20} spawnChance={30} minSize={50} maxSize={200} minTime={7} maxTime={40} />
         <GeneralInfo age={age} wakatime={wakatime} weather={weather} time={date.toLocaleString('ru-RU', {
             hour: 'numeric',
             minute: 'numeric',
@@ -37,4 +39,4 @@ export default async function Page() {
     </AppLayout>
 }
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";

@@ -27,7 +27,13 @@ export default async function Page() {
     }
     const weather = await GetWeather()
     return <AppLayout>
-        <GeneralInfo age={age} wakatime={wakatime} weather={weather}/>
+        <GeneralInfo age={age} wakatime={wakatime} weather={weather} time={date.toLocaleString('ru-RU', {
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric',
+            hour12: false,
+            timeZone: "Europe/Moscow"
+        })}/>
     </AppLayout>
 }
 

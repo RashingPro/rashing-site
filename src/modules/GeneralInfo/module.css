@@ -36,9 +36,11 @@
     margin-left: 1.3rem;
 }
 
-.general-info__title__name-container h3,
 .general-info__title__name-container h2 {
     color: lightgrey;
+}
+.general-info__title__name-container h3 {
+    color: grey;
 }
 
 .general-info__description {

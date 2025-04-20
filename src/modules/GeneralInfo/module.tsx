@@ -42,7 +42,7 @@ function ProfileDescription({age, wakatime, localtime}: { age: number, wakatime:
         </div>
         <div className={"general-info__description__list"}>
             <span className={"font-medium"}>Wakatime:</span> {wakaHours} часов {wakaMinutes} минут<br />
-            <span className={"font-medium"}>Локальное время:</span> {localtime}
+            <span className={"font-medium"}>Локальное время:</span> {localtime} <span style={{"color": "grey"}}>UTC+3</span>
         </div>
         <div className={"general-info__description__links"}>
 
@@ -64,26 +64,30 @@ function GetWeatherIcon({code}: {code: number}) {
     }
 }
 
-function getTime() {
-    return new Date().toLocaleString('ru-RU', {
-        hour: 'numeric',
-        minute: 'numeric',
-        second: 'numeric',
-        hour12: false,
-        timeZone: "Europe/Moscow"
-    });
-}
+
 
 interface ModuleProps {
     age: number,
     wakatime: number,
-    weather: { [key: string]: string | any }
+    weather: { [key: string]: string | any },
+    time: string
 }
 
-export default function Module({age, wakatime, weather}: ModuleProps) {
-    const [localTime, setLocalTime] = useState<string>(getTime());
+export default function Module({age, wakatime, weather, time}: ModuleProps) {
+    const [localTime, setLocalTime] = useState<string>(time);
 
     useEffect(() => {
+        const getTime = () => {
+            return new Date().toLocaleString('ru-RU', {
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric',
+                hour12: false,
+                timeZone: "Europe/Moscow"
+            });
+        }
+
+        setLocalTime(getTime())
         const interval = setInterval(() => setLocalTime(getTime()), 1000)
 
         return () => clearInterval(interval);

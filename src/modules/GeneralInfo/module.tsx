@@ -19,6 +19,7 @@ import Image from "next/image"
 import profile_icon from "@/../public/logo.png";
 import "./module.css"
 import {JSX, useEffect, useState} from "react";
+import HoverEffect from "@/modules/HoverEffect/module"
 
 
 function LinkButton({text, link, icon = <></>}: {text: string, link: string, icon?: JSX.Element}) {
@@ -57,9 +58,15 @@ function ProfileDescription({age, wakatime, localtime}: { age: number, wakatime:
             <span className={"font-medium"}>Локальное время:</span> {localtime} <span style={{"color": "grey"}}>UTC+3</span>
         </div>
         <div className={"general-info__description__link-container"}>
-            <LinkButton text={"GitHub"} link={"https://github.com/RashingPro/"} icon={<IconBrandGithub />} />
-            <LinkButton text={"Boosty"} link={"https://boosty.to/rashing"} icon={<IconTipJar />} />
-            <LinkButton text={"Telegram"} link={"https://t.me/rashing_pro"} icon={<IconBrandTelegram />} />
+            <HoverEffect scale={1.05} duration={200}>
+                <LinkButton text={"GitHub"} link={"https://github.com/RashingPro/"} icon={<IconBrandGithub />} />
+            </HoverEffect>
+            <HoverEffect scale={1.05} duration={200}>
+                <LinkButton text={"Boosty"} link={"https://boosty.to/rashing"} icon={<IconTipJar />} />
+            </HoverEffect>
+            <HoverEffect scale={1.05} duration={200}>
+                <LinkButton text={"Telegram"} link={"https://t.me/rashing_pro"} icon={<IconBrandTelegram />} />
+            </HoverEffect>
         </div>
     </div>
 }

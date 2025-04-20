@@ -9,12 +9,24 @@ import {
     IconCloudRain,
     IconCloudStorm,
     IconSnowflake,
-    IconMist
+    IconMist,
+
+    IconBrandGithub,
+    IconTipJar,
+    IconBrandTelegram
 } from "@tabler/icons-react"
 import Image from "next/image"
 import profile_icon from "@/../public/logo.png";
 import "./module.css"
-import {useEffect, useState} from "react";
+import {JSX, useEffect, useState} from "react";
+
+
+function LinkButton({text, link, icon = <></>}: {text: string, link: string, icon?: JSX.Element}) {
+    return <a className={"general-info__description__link"} href={link}>
+        {icon}
+        {text}
+    </a>
+}
 
 function ProfileTitle({weather, weatherIcon}: {weather: string, weatherIcon: number}) {
     return <div className={"general-info__title"}>
@@ -44,8 +56,10 @@ function ProfileDescription({age, wakatime, localtime}: { age: number, wakatime:
             <span className={"font-medium"}>Wakatime:</span> {wakaHours} часов {wakaMinutes} минут<br />
             <span className={"font-medium"}>Локальное время:</span> {localtime} <span style={{"color": "grey"}}>UTC+3</span>
         </div>
-        <div className={"general-info__description__links"}>
-
+        <div className={"general-info__description__link-container"}>
+            <LinkButton text={"GitHub"} link={"https://github.com/RashingPro/"} icon={<IconBrandGithub />} />
+            <LinkButton text={"Boosty"} link={"https://boosty.to/rashing"} icon={<IconTipJar />} />
+            <LinkButton text={"Telegram"} link={"https://t.me/rashing_pro"} icon={<IconBrandTelegram />} />
         </div>
     </div>
 }

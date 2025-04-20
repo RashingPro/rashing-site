@@ -54,3 +54,22 @@
     text-align: justify;
     font-size: 1.2rem;
 }
+
+.general-info__description__link-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    max-width: 100%;
+}
+
+.general-info__description__link {
+    padding: .5rem;
+    border: .15rem solid var(--foreground);
+    border-radius: 1.2rem;
+
+    display: flex;
+    gap: .1rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

@@ -53,7 +53,7 @@ function ProfileDescription({age, wakatime, localtime}: { age: number, wakatime:
             Меня зовут Кирилл, {age} лет, я из Санкт-Петербурга. Разрабатываю сайты, приложения, ботов и др.
         </div>
         <div className={"general-info__description__list"}>
-            <span className={"font-medium"}>Wakatime:</span> {wakaHours} часов {wakaMinutes} минут<br />
+            <span className={"font-medium"}>Wakatime:</span> {wakaHours} часов {wakaMinutes > 0 && wakaMinutes + "минут"}<br />
             <span className={"font-medium"}>Локальное время:</span> {localtime} <span style={{"color": "grey"}}>UTC+3</span>
         </div>
         <div className={"general-info__description__link-container"}>

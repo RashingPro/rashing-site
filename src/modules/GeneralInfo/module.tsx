@@ -18,13 +18,14 @@ import profile_icon from "@/../public/logo.png";
 import "./module.css"
 import {JSX, useEffect, useState} from "react";
 import HoverEffect from "@/modules/HoverEffect/module"
+import Link from "next/link";
 
 
 function LinkButton({text, link, icon = <></>}: {text: string, link: string, icon?: JSX.Element}) {
-    return <a className={"general-info__description__link"} href={link}>
+    return <Link className={"general-info__description__link"} href={link}>
         {icon}
         {text}
-    </a>
+    </Link>
 }
 
 function ProfileTitle({weather, weatherIcon}: {weather: string, weatherIcon: number}) {

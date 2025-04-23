@@ -28,7 +28,7 @@ export default async function Page() {
     }
     const weather = await GetWeather()
     return <AppLayout>
-        <BackgroundEffect blur={20} spawnChance={30} minSize={50} maxSize={200} minTime={7} maxTime={40} />
+        {/*<BackgroundEffect blur={20} spawnChance={30} minSize={50} maxSize={200} minTime={7} maxTime={40} />*/}
         <GeneralInfo age={age} wakatime={wakatime} weather={weather} time={date.toLocaleString('ru-RU', {
             hour: 'numeric',
             minute: 'numeric',

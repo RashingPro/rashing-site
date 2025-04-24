@@ -47,13 +47,14 @@ function ProfileTitle({weather, weatherIcon}: {weather: string, weatherIcon: num
 function ProfileDescription({age, wakatime, localtime}: { age: number, wakatime: number, localtime: string }) {
     const wakaHours = Math.floor(wakatime / (60*60))
     const wakaMinutes = Math.floor((wakatime - wakaHours * 60 * 60) / 60)
+
     return <div className={"general-info__description"}>
         <div className={"general-info__description__text"}>
             <h1>Hi there!</h1>
             Меня зовут Кирилл, {age} лет, я из Санкт-Петербурга. Разрабатываю сайты, приложения, ботов и др.
         </div>
         <div className={"general-info__description__list"}>
-            <span className={"font-medium"}>Wakatime:</span> {wakaHours} часов {wakaMinutes > 0 && wakaMinutes + "минут"}<br />
+            <span className={"font-medium"}>Wakatime:</span> {wakaHours} hrs {wakaMinutes > 0 && wakaMinutes + " min"}<br />
             <span className={"font-medium"}>Локальное время:</span> {localtime} <span style={{"color": "grey"}}>UTC+3</span>
         </div>
         <div className={"general-info__description__link-container"}>

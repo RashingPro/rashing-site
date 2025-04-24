@@ -6,9 +6,6 @@ import {ReactNode} from "react";
 export const metadata: Metadata = {
     title: "Rashing",
     description: "Rashing | Next.js | React | Python | Java",
-    openGraph: {
-        url: ""
-    },
     twitter: {
         card: "summary"
     }

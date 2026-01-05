@@ -24,6 +24,16 @@ export async function GET(req: NextRequest) {
         return NextResponse.json({"error": "Rate limit exceeded"}, {status: 429})
     }
 
+    let wakatime;
+    const wakatimeRes = await fetch("https://wakatime.com/share/@Rashing/2325798e-c1f6-46c6-8ad5-75178c1a3808.json")
+    if (wakatimeRes.ok) {
+        wakatime = (await wakatimeRes.json())["data"]["grand_total"]["total_seconds_including_other_language"]
+    } else {
+        return NextResponse.json({}, {status: 500})
+    }
+    const wakaHours = Math.floor(wakatime / (60*60))
+    const wakaMinutes = Math.floor((wakatime - wakaHours * 60 * 60) / 60)
+
     const accentColor = "#ffb629"
     const accentStyle: CSSProperties = {color: accentColor}
 
@@ -78,7 +88,7 @@ export async function GET(req: NextRequest) {
                     <span style={accentStyle}>github</span>
                 </span>
                     <span>{"-".repeat("rashing@github".length)}</span>
-                    <FetchEntry title={"WakaTime"} content={"455 hrs 12 mins"} />
+                    <FetchEntry title={"WakaTime"} content={`${wakaHours} hrs ${wakaMinutes > 0 && wakaMinutes + " min"}`} />
                     <FetchEntry title={"Languages"} content={"TypeScript, Java, C#"} />
                     <FetchEntry title={"Frontend"} content={"Next.js"} />
                     <FetchEntry title={"Backend"} content={"Nest.js"} />

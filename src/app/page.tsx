@@ -1,8 +1,5 @@
-// "use server"
-
 import GeneralInfo from "@/modules/GeneralInfo/module"
 import AppLayout from "@/modules/AppLayout/module"
-import BackgroundEffect from "@/modules/BackgroundEffect/module"
 import "./style.css"
 
 async function GetWeather() {
@@ -24,7 +21,7 @@ export default async function Page() {
     let wakatime;
     const wakatimeRes = await fetch("https://wakatime.com/share/@Rashing/2325798e-c1f6-46c6-8ad5-75178c1a3808.json")
     if (wakatimeRes.ok) {
-        wakatime = (await wakatimeRes.json())["data"]["grand_total"]["total_seconds"]
+        wakatime = (await wakatimeRes.json())["data"]["grand_total"]["total_seconds_including_other_language"]
     }
     const weather = await GetWeather()
     return <AppLayout>

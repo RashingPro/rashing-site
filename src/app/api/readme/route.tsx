@@ -92,7 +92,10 @@ export async function GET(req: NextRequest) {
                     <FetchEntry title={"Languages"} content={"TypeScript, Java, C#"} />
                     <FetchEntry title={"Frontend"} content={"Next.js"} />
                     <FetchEntry title={"Backend"} content={"Nest.js"} />
-                    <FetchEntry title={"Desktop"} content={"Avalonia"} />
+                    <FetchEntry title={"Desktop"} content={"Tauri"} />
+                    <span>&nbsp;</span>
+                    <FetchEntry title={"Timezone"} content={"UTC+3"} />
+                    <FetchEntry title={"Mood"} content={"Lonely :("} />
                 </div>
             </div>
             <CommandlinePrompt cmd={"ls"} />
@@ -111,6 +114,7 @@ export async function GET(req: NextRequest) {
             <div>
                 Hello World!
             </div>
+            <CommandlinePrompt cmd={""} />
         </div>,
         {
             width: 896,

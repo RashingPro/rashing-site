@@ -89,7 +89,7 @@ export async function GET(req: NextRequest) {
                 </span>
                     <span>{"-".repeat("rashing@github".length)}</span>
                     <FetchEntry title={"WakaTime"} content={`${wakaHours} hrs ${wakaMinutes > 0 && wakaMinutes + " min"}`} />
-                    <FetchEntry title={"Languages"} content={"TypeScript, Java, C#"} />
+                    <FetchEntry title={"Languages"} content={"Java, Rust, TypeScript, C#"} />
                     <FetchEntry title={"Frontend"} content={"Next.js"} />
                     <FetchEntry title={"Backend"} content={"Nest.js"} />
                     <FetchEntry title={"Desktop"} content={"Tauri"} />
